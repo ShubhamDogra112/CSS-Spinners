@@ -134,42 +134,50 @@ body{
     animation: rotate 1.2s cubic-bezier(0.12, 0, 0.39, 0) infinite;
 }
 
-.spinner7{
-    position: relative;
-    height: 6rem;
-    width: 6rem;
-    animation: rotator 1.4s linear infinite;
-}
-
-@keyframes rotator {
-    0% {
-              transform: rotate(0deg);
+svg{
+    /* make height and width +10 radius of svg */
+    position:relative;
+    height:70px;
+    width:70px;
+    animation : move 1.6s linear infinite;
+  }
+  
+  @keyframes move{
+    0%{
+      transform: rotate(0deg);
     }
-    100% {
-      
-              transform: rotate(270deg);
+  
+    100%{
+      transform:rotate(360deg);
     }
   }
-
-  @keyframes dash {
-    0% {
-      stroke-dashoffset: 187;
-    }
-    50% {
-      stroke-dashoffset: 46.75;
-      
-transform: rotate(135deg);
-    }
-    100% {
-      stroke-dashoffset: 187;
-      transform: rotate(450deg);
-    }
-  }
-
-  .path {
-    stroke-dasharray: 187;
-    stroke-dashoffset: 0;
-    transform-origin: center;
+  
+  svg circle{
+    position: absolute;
+    left:0;
+    right:0;
     stroke:red;
-    animation: dash 1.4s ease-in-out infinite;
+    stroke-width: 5px;
+    stroke-linecap: round;
+    fill: #fff;
+    transform:translate(5px , 5px);
+    stroke-dasharray: 200px;
+    stroke-dashoffset: 200px;
+    animation: rotates 1.5s linear infinite;
+  }
+  
+  @keyframes rotates{
+  
+    0% , 100%{
+      stroke-dashoffset: 200px;
+    }
+  
+    50%{
+      stroke-dashoffset: 0px;
+    }
+  
+    50.1%{
+      stroke-dashoffset: 400px;
+    }
+  
   }
